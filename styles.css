@@ -1,0 +1,225 @@
+/*
+ * GENERAL STYLES & FONT (DARK MODE)
+ */
+body {
+  margin: 0;
+  font-family: "Noto Sans Thai", system-ui, sans-serif;
+  background-color: #121212; /* Very Dark Background */
+  color: #e0e0e0; /* Light Grey Text */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/*
+ * HEADER STYLES
+ */
+header {
+  text-align: center;
+  padding: 30px 16px 15px;
+  background-color: #1e1e1e; /* Slightly Lighter Dark Header Background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Darker Shadow */
+}
+
+header h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 28px;
+  color: #00c853; /* Bright Green Accent for title */
+}
+
+header p {
+  margin: 0;
+  color: #a0a0a0; /* Muted Light Grey for subtitle */
+  font-size: 16px;
+}
+
+/*
+ * MAIN CONTENT & COMPANY LIST
+ */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 25px 16px;
+}
+
+/*
+ * COMPANY CARD (ARTICLE) STYLES
+ */
+article {
+  border: 1px solid #333333; /* Darker border */
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  max-width: 250px;
+  background-color: #1e1e1e; /* Dark Card Background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow in dark mode */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+  background-color: #282828; /* Highlight on hover */
+}
+
+article img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px solid #00c853; /* Bright Green border for logo */
+  padding: 5px;
+  background-color: #333333;
+}
+
+article h2 {
+  margin: 15px 0 8px;
+  font-size: 20px;
+  color: #ffffff; /* White title */
+}
+
+article p {
+  margin: 0 0 15px;
+  color: #b0b0b0;
+  font-size: 15px;
+  min-height: 45px;
+}
+
+article button {
+  /* Primary Button Style */
+  border: none;
+  background: #00c853; /* Bright Green Button */
+  color: #121212; /* Dark Text on Button */
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+article button:hover {
+  background: #69f0ae; /* Lighter Green on hover */
+}
+
+article button:active {
+  transform: scale(0.98);
+}
+
+/*
+ * FOOTER STYLES
+ */
+footer {
+  text-align: center;
+  color: #757575;
+  font-size: 13px;
+  padding: 20px 0;
+  border-top: 1px solid #333333;
+  margin-top: 20px;
+}
+
+/*
+ * OVERLAY (MODAL) STYLES
+ */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Very Dark Backdrop */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* Animation setup */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#overlay[style*="flex"] {
+    opacity: 1;
+}
+
+.overlay-box {
+  background-color: #1e1e1e; /* Dark Modal Box Background */
+  border: 1px solid #444444;
+  border-radius: 15px;
+  padding: 25px;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  /* Pop-up (Bounce) Animation */
+  transform: scale(0.7);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Spring/bounce effect */
+}
+
+#overlay[style*="flex"] .overlay-box {
+    transform: scale(1); /* Scale up when modal is active */
+}
+
+.overlay-box img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  border: 4px solid #ff9800; /* Orange Accent color border */
+  padding: 5px;
+  background-color: #333333;
+}
+
+.overlay-box h2 {
+  font-size: 24px;
+  color: #00c853; /* Bright Green title */
+  margin-top: 5px;
+}
+
+.overlay-box p {
+  color: #e0e0e0;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.overlay-box a,
+.overlay-box button {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin: 8px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.overlay-box a {
+  /* Link Button */
+  border: none;
+  background-color: #ff9800; /* Orange Accent color */
+  color: #121212; /* Dark Text on Button */
+  text-decoration: none;
+}
+
+.overlay-box a:hover {
+  background-color: #ffb74d;
+}
+
+.overlay-box button {
+  /* Close Button */
+  border: none;
+  background-color: #424242; /* Medium Dark Grey color */
+  color: #e0e0e0;
+}
+
+.overlay-box button:hover {
+  background-color: #616161;
+}
+
+/*
+ * BODY OVERFLOW MANAGEMENT
+ */
+body.modal-open {
+  overflow: hidden; /* Prevent scrolling when modal is open */
+}
