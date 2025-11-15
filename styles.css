@@ -1,225 +1,158 @@
-/*
- * GENERAL STYLES & FONT (DARK MODE)
- */
+/* ----------------------------------------------------
+   GLOBAL STYLE
+---------------------------------------------------- */
 body {
-  margin: 0;
-  font-family: "Noto Sans Thai", system-ui, sans-serif;
-  background-color: #121212; /* Very Dark Background */
-  color: #e0e0e0; /* Light Grey Text */
-  transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0c0c0c;
+    color: #e8e8e8;
+    overflow-x: hidden;
 }
 
-/*
- * HEADER STYLES
- */
-header {
-  text-align: center;
-  padding: 30px 16px 15px;
-  background-color: #1e1e1e; /* Slightly Lighter Dark Header Background */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Darker Shadow */
+.container {
+    width: 90%;
+    max-width: 850px;
+    margin: auto;
+    padding-top: 40px;
+    animation: fadeIn 1s ease-in-out;
 }
 
-header h1 {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 28px;
-  color: #00c853; /* Bright Green Accent for title */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px #00eaff88;
 }
 
-header p {
-  margin: 0;
-  color: #a0a0a0; /* Muted Light Grey for subtitle */
-  font-size: 16px;
+/* ----------------------------------------------------
+   CARD / FORM BOX
+---------------------------------------------------- */
+.form-box {
+    background: linear-gradient(145deg, #111, #0b0b0b);
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 15px;
+    box-shadow: 
+        0 0 10px #000,
+        inset 0 0 12px #0ff2;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-/*
- * MAIN CONTENT & COMPANY LIST
- */
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 25px 16px;
+.form-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 0 15px #0ff4,
+        inset 0 0 20px #0ff3;
 }
 
-/*
- * COMPANY CARD (ARTICLE) STYLES
- */
-article {
-  border: 1px solid #333333; /* Darker border */
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  max-width: 250px;
-  background-color: #1e1e1e; /* Dark Card Background */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow in dark mode */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+/* ----------------------------------------------------
+   INPUTS
+---------------------------------------------------- */
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 6px 0 14px 0;
+    background: #0f0f0f;
+    border: 1px solid #222;
+    color: #0ff;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
-article:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
-  background-color: #282828; /* Highlight on hover */
+input:focus {
+    border-color: #00eaff;
+    box-shadow: 0 0 10px #00eaff55;
 }
 
-article img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  border-radius: 50%;
-  border: 3px solid #00c853; /* Bright Green border for logo */
-  padding: 5px;
-  background-color: #333333;
+/* ----------------------------------------------------
+   BUTTONS
+---------------------------------------------------- */
+button {
+    width: 48%;
+    padding: 12px;
+    margin: 6px 1%;
+    background: #111;
+    border: 1px solid #00eaff44;
+    color: #e8e8e8;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.25s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-article h2 {
-  margin: 15px 0 8px;
-  font-size: 20px;
-  color: #ffffff; /* White title */
+button:hover {
+    color: #0ff;
+    background: #0f0f0f;
+    border-color: #00eaff;
+    box-shadow: 0 0 12px #00eaff88;
+    cursor: pointer;
 }
 
-article p {
-  margin: 0 0 15px;
-  color: #b0b0b0;
-  font-size: 15px;
-  min-height: 45px;
+button:active {
+    transform: scale(0.97);
 }
 
-article button {
-  /* Primary Button Style */
-  border: none;
-  background: #00c853; /* Bright Green Button */
-  color: #121212; /* Dark Text on Button */
-  padding: 10px 18px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  transition: background-color 0.3s, transform 0.1s;
+/* Ripple hover effect */
+button::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: #00eaff44;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    top: var(--y);
+    left: var(--x);
+    pointer-events: none;
+    transition: width 0.3s ease, height 0.3s ease;
 }
 
-article button:hover {
-  background: #69f0ae; /* Lighter Green on hover */
+button:hover::before {
+    width: 200px;
+    height: 200px;
 }
 
-article button:active {
-  transform: scale(0.98);
+/* Track mouse inside button */
+button.addEventListener;
+
+/* ----------------------------------------------------
+   RESULT BOX
+---------------------------------------------------- */
+#result-box {
+    background: #000;
+    padding: 20px;
+    min-height: 200px;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    box-shadow: inset 0 0 15px #00eaff33;
+    border: 1px solid #00eaff22;
+    font-family: "Consolas", monospace;
+    letter-spacing: 0.5px;
 }
 
-/*
- * FOOTER STYLES
- */
-footer {
-  text-align: center;
-  color: #757575;
-  font-size: 13px;
-  padding: 20px 0;
-  border-top: 1px solid #333333;
-  margin-top: 20px;
+/* ----------------------------------------------------
+   POPUP MOUSE EFFECT
+---------------------------------------------------- */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+    color: #00eaff;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.15s ease-out, transform 0.1s ease-out;
+    transform: scale(1.3);
 }
 
-/*
- * OVERLAY (MODAL) STYLES
- */
-#overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.8); /* Very Dark Backdrop */
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  /* Animation setup */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-#overlay[style*="flex"] {
-    opacity: 1;
-}
-
-.overlay-box {
-  background-color: #1e1e1e; /* Dark Modal Box Background */
-  border: 1px solid #444444;
-  border-radius: 15px;
-  padding: 25px;
-  max-width: 360px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  /* Pop-up (Bounce) Animation */
-  transform: scale(0.7);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Spring/bounce effect */
-}
-
-#overlay[style*="flex"] .overlay-box {
-    transform: scale(1); /* Scale up when modal is active */
-}
-
-.overlay-box img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  margin-bottom: 12px;
-  border-radius: 50%;
-  border: 4px solid #ff9800; /* Orange Accent color border */
-  padding: 5px;
-  background-color: #333333;
-}
-
-.overlay-box h2 {
-  font-size: 24px;
-  color: #00c853; /* Bright Green title */
-  margin-top: 5px;
-}
-
-.overlay-box p {
-  color: #e0e0e0;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.overlay-box a,
-.overlay-box button {
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 10px 20px;
-  border-radius: 25px;
-  margin: 8px;
-  transition: background-color 0.2s, transform 0.1s;
-}
-
-.overlay-box a {
-  /* Link Button */
-  border: none;
-  background-color: #ff9800; /* Orange Accent color */
-  color: #121212; /* Dark Text on Button */
-  text-decoration: none;
-}
-
-.overlay-box a:hover {
-  background-color: #ffb74d;
-}
-
-.overlay-box button {
-  /* Close Button */
-  border: none;
-  background-color: #424242; /* Medium Dark Grey color */
-  color: #e0e0e0;
-}
-
-.overlay-box button:hover {
-  background-color: #616161;
-}
-
-/*
- * BODY OVERFLOW MANAGEMENT
- */
-body.modal-open {
-  overflow: hidden; /* Prevent scrolling when modal is open */
+/* ----------------------------------------------------
+   ANIMATIONS
+---------------------------------------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
